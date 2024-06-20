@@ -1,0 +1,84 @@
+1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+   <div class="container">
+        <form class="form" id="tipForm">
+            <h1> Tip Calculator</h1>
+            <label for="billamount"> Bill Amount</label>
+            <input type="number" id="billAmount"/>
+            <label for="tipPercentage">Tip Percentage</label>
+            <select id=" tipPercentage">
+                <option value="5">5%</option>
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+            </select>
+            <button type="button" id="btnCalc" onclick="calculateTip()"> CalculateTip</button>
+            <div id="result">==$0
+                <p >Total Amount: <span id="tipAmount">0</span></p>
+                <p id="totalAmount">
+                <p >Total Amount: <span id="tipAmount">0</span></p>
+                
+                </p>
+
+            </div>
+        </form>
+   </div>
+</body>
+</html>
+
+
+
+
+
+2
+
+function calculateTip(){
+    let billAmount=parseInt(document.getElementById('billAmount').value);
+    let tipPercentage=parseInt(document.getElementById('tipPercentage').value);
+    
+    let tipAmount=(billAmount*tipPercentage)/100;
+    let totalAmount=billAmount+tipAmount;
+
+    document.getElementById('tipAmount').innerText=tipAmount.toFixed(2);
+    document.getElementById('totalAmount').innerText=totalAmount.toFixed(2);
+}
+
+
+3
+
+
+.container{
+    margin: 50px auto;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+}
+.form{
+    box-shadow: 8px 10px 10px #ece9e9;
+    display: grid;
+    gap: 10px;
+}
+#btnCalc{
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+.form input,select{
+    padding: 8px;
+}
+.form h1{
+    justify-self: center;
+}
+#result span{
+    font-weight: bold;
+}
