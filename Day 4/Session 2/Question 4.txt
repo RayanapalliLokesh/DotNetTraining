@@ -1,0 +1,68 @@
+using System;
+public class ShippingCostCalculator{
+    public double CalculateCost(double weight){
+        return weight*2;
+    }
+    
+    public double CalculateCost(double length, double width, double height){
+        return length*width*height*0.01;
+    }
+    
+    public double CalculateCost(double length, double width, double height, string method){
+        double baseCost = length*width*height;
+        if(method.ToLower()=="standard"){
+            return baseCost*0.02;
+        }
+        else if(method.ToLower()=="express"){
+            return baseCost*0.05;
+        }   
+        
+        else{
+            return 0.00;
+        }
+        
+        
+    }
+}
+
+public class Program{
+    public static void Main(){
+        ShippingCostCalculator c = new ShippingCostCalculator();
+        int choice = int.Parse(Console.ReadLine());
+        
+        switch(choice){
+            case 1:
+                double smallWeight = double.Parse(Console.ReadLine());
+                double smallCost = c.CalculateCost(smallWeight);
+                
+                Console.WriteLine($"The estimated shipping cost for the small package is: ${smallCost}");
+                break;
+        
+            case 2:
+        
+            double mediumLength = double.Parse(Console.ReadLine()); 
+            double mediumWidth = double.Parse(Console.ReadLine()); 
+            double mediumHeight = double.Parse(Console.ReadLine()); 
+            double mediumCost = c.CalculateCost(mediumLength,mediumWidth,mediumHeight);
+            
+            Console.WriteLine($"The estimated shipping cost for the medium package is: ${mediumCost}");
+            break;
+            
+            case 3:
+        
+            double largeLength = double.Parse(Console.ReadLine()); 
+            double largeWidth = double.Parse(Console.ReadLine()); 
+            double largeHeight = double.Parse(Console.ReadLine()); 
+            string method = Console.ReadLine();
+            double largeCost = c.CalculateCost(largeLength,largeWidth,largeHeight,method);
+            
+            Console.WriteLine($"The estimated shipping cost for the large package is: ${largeCost}");
+            break;
+            
+            default:
+            Console.WriteLine("Invalid");
+            break;
+        }
+        
+    }
+}

@@ -1,0 +1,31 @@
+using System;
+
+public class Program{
+    public static void Main(string[] args){
+        string Brand = Console.ReadLine();
+        string Model = Console.ReadLine();
+        double Price = double.Parse(Console.ReadLine());
+        string Processor = Console.ReadLine();
+        
+        int Ram = int.Parse(Console.ReadLine());
+        int Storage = int.Parse(Console.ReadLine());
+        string Type = Console.ReadLine();
+        
+        string percS = Console.ReadLine();
+        
+        int perc = 0;
+        if(!string.IsNullOrEmpty(percS)){
+            perc = int.Parse(percS);
+            Price = Price -((Price*perc)/100);
+        }
+        
+        if(Type == "Gaming"){
+            Console.WriteLine($"Laptop Details: Brand - {Brand}, Model - {Model}, Price: ${Price}, Processor: {Processor}, RAM: {Ram} GB, Storage: {Storage} GB");
+            Console.WriteLine($"Type: Gaming");
+        }
+        else{
+            Console.WriteLine($"Laptop Details: Brand - {Brand}, Model - {Model}, Price: ${Price}, Processor: {Processor}, RAM: {Ram} GB, Storage: {Storage} GB");
+            Console.WriteLine($"Type: Business");
+        }
+    }
+}

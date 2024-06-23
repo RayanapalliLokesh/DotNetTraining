@@ -1,0 +1,33 @@
+using System;
+class EstimateCost{
+    public static void Main(){
+        int ConstructionEstimator;
+        var n=Console.ReadLine();
+        switch(n){
+            case"1":
+                double hLength=double.Parse(Console.ReadLine());
+                double hWidth=double.Parse(Console.ReadLine());
+                double hHeight=double.Parse(Console.ReadLine());
+                Console.WriteLine("The estimated cost of the house is: $"+hLength*hWidth*hHeight*50);
+                break;
+            case"2":
+                double sLength=double.Parse(Console.ReadLine());
+                double sWidth=double.Parse(Console.ReadLine());
+                double sHeight=double.Parse(Console.ReadLine());
+                double numberOfFloors=double.Parse(Console.ReadLine());
+                Console.WriteLine("The estimated cost of the skyscraper is: $"+sLength*sWidth*sHeight*100*numberOfFloors);
+                break;
+                
+            default:
+                
+                double bLength=double.Parse(Console.ReadLine());
+                double bWidth=double.Parse(Console.ReadLine());
+                bool bHeight=bool.Parse(Console.ReadLine());
+                if(bHeight)
+                Console.WriteLine("The estimated cost of the bridge is: $"+bLength*bWidth*200);
+                else
+                Console.WriteLine("The estimated cost of the bridge is: $"+bLength*bWidth*100);
+                break;
+        }
+    }
+}

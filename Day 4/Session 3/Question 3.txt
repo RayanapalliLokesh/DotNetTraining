@@ -1,0 +1,83 @@
+using System;
+
+public interface IAlert{
+    string AlertBySms();
+    string AlertByEmail();
+    string AlertByPopUP();
+}
+
+public class MyPay:IAlert{
+    public string AlertBySms(){
+        return "SMS";
+    }
+    
+    public string AlertByEmail(){
+        return "Email";
+    }
+    
+    public string AlertByPopUP(){
+        return "PopUP";
+    }
+}
+
+public class MyService:IAlert{
+    public string AlertBySms(){
+        return "SMS";
+    }
+    public string AlertByEmail(){
+        return "Email";
+    }
+    
+    public string AlertByPopUP(){
+        return "PopUP";
+    }
+}
+
+class Program{
+    public static void Main(string[] args){
+        int appChoice = int.Parse(Console.ReadLine());
+        int alertChoice = int.Parse(Console.ReadLine());
+        
+        switch(appChoice){
+            case 1:{
+                MyPay mp = new MyPay();
+                switch(alertChoice){
+                    case 11:
+                        Console.WriteLine($"MyPay app need alert by {mp.AlertBySms()}");
+                        break;
+                    case 12:
+                        Console.WriteLine($"MyPay app need alert by {mp.AlertByEmail()}");
+                        break;
+                    case 13:
+                        Console.WriteLine($"MyPay app need alert by {mp.AlertByPopUP()}");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                }
+                break;
+            }
+            
+            case 2:{
+                MyService ms = new MyService();
+                switch(alertChoice){
+                    case 11:
+                        Console.WriteLine($"MyService app need alert by {ms.AlertBySms()}");
+                        break;
+                    case 12:
+                        Console.WriteLine($"MyService app need alert by {ms.AlertByEmail()}");
+                        break;
+                    case 13:
+                        Console.WriteLine($"MyService app need alert by {ms.AlertByPopUP()}");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                }
+                break;
+            }
+            default: Console.WriteLine("Invalid Input");
+            break;
+        }
+    }
+}

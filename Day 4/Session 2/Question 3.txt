@@ -1,0 +1,51 @@
+using System;
+public class VehicleRentalEstimator{
+    public double EstimateCost(int days, int distance){
+        return days*50+distance*0.2;
+    }
+    
+    public double EstimateCost(int days, int distance, bool withDriver){
+        return days*100+distance*0.5+(withDriver?200: 0);
+    }
+    
+    public double EstimateCost(int days, bool includeInsurance){
+        return includeInsurance?days*20+50: days*20;
+    }
+}
+
+public class Program{
+    public static void Main(){
+        VehicleRentalEstimator es = new VehicleRentalEstimator();
+        int choice = int.Parse(Console.ReadLine());
+        switch(choice){
+            case 1:
+                int carDays = int.Parse(Console.ReadLine());
+                int carDistance = int.Parse(Console.ReadLine());
+                double carCost = es.EstimateCost(carDays, carDistance);
+                Console.WriteLine($"The estimated rental cost of the car is: ${carCost}");
+                break;
+                
+            case 2:
+                int truckDays = int.Parse(Console.ReadLine());
+                int truckDistance = int.Parse(Console.ReadLine());
+                bool withDriver = bool.Parse(Console.ReadLine());
+                
+                double truckCost = es.EstimateCost(truckDays, truckDistance, withDriver);
+                Console.WriteLine($"The estimated rental cost of the truck is: ${truckCost}");
+                break;
+                
+            case 3:
+                int bikeDays = int.Parse(Console.ReadLine());
+                bool includeInsurance = bool.Parse(Console.ReadLine());
+                
+                double bikeCost = es.EstimateCost(bikeDays, includeInsurance);
+                Console.WriteLine($"The estimated rental cost of the bike is: ${bikeCost}");
+                break;
+                
+                default:
+                
+                Console.WriteLine("Incorrect");
+                break;
+        }
+    }
+}

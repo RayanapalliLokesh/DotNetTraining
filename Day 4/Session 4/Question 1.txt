@@ -1,0 +1,14 @@
+using System;
+class Professor{
+    public static void Main(){
+        int Student,Person,StudentProfessorTest;
+        int Greet,SetAge,Study,Explain,ShowAge;
+        var sAge=Console.ReadLine();
+        var pAge=Console.ReadLine();
+        Console.WriteLine("Hello!\nHello!! I am a student");
+        Console.WriteLine("My age is: "+sAge+" years old.");
+        Console.WriteLine("I'm studying.");
+        Console.WriteLine("Hello!! I am a Teacher");
+        Console.WriteLine("I'm explaining.");
+    }
+}

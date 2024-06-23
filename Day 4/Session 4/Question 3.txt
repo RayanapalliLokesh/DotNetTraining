@@ -1,0 +1,23 @@
+using System;
+abstract class p{
+    public abstract int GetArea();
+}
+internal class q:p{
+    int x=1;
+    int Model;
+    public override int GetArea()=>x*x;
+}
+
+class Program{
+    public static void Main(){
+        string Vehicle=Console.ReadLine();
+        var FuelType=Console.ReadLine();
+        var VehicleName=Console.ReadLine();
+        var Color=Console.ReadLine();
+        Console.WriteLine("Vehicle Details: "+Vehicle+" - "+FuelType+" - "+VehicleName+" - "+Color);
+        Console.WriteLine("Model - "+Vehicle);
+        Console.WriteLine("Fuel Type - "+FuelType);
+        Console.WriteLine("Vehicle Name - "+VehicleName);
+        Console.WriteLine("Color - "+Color);
+    }
+}

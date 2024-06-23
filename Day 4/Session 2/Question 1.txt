@@ -1,0 +1,49 @@
+using System;
+class TravelAgency{
+    public double CalculateCost(int soloDays){
+        return soloDays*100;
+    }
+    public double CalculateCost(int days,bool isLuxury){
+        return isLuxury?days*200: days*150;
+    }
+    public double CalculateCost(int days, int numberOfChildren){
+        return days*(150+numberOfChildren*50);
+    }
+}
+
+class Program{
+    public static void Main(string[] args){
+        TravelAgency ta = new TravelAgency();
+        int choice = int.Parse(Console.ReadLine());
+        switch(choice){
+            case 1:
+            int soloDays = int.Parse(Console.ReadLine());
+            double soloCost = ta.CalculateCost(soloDays);
+            Console.WriteLine($"Cost of a solo package for {soloDays} days: ${soloCost}");
+            break;
+            
+            case 2:
+            int coupleDays = int.Parse(Console.ReadLine());
+            bool isLuxury = bool.Parse(Console.ReadLine());
+            double coupleCost = ta.CalculateCost(coupleDays, isLuxury);
+            
+            Console.WriteLine($"Cost of a couple's package for {coupleDays} days: ${coupleCost}");
+            break;
+            
+            case 3:
+            int familyDays = int.Parse(Console.ReadLine());
+            int numberOfChildren = int.Parse(Console.ReadLine());
+            double familyCost = ta.CalculateCost(familyDays, numberOfChildren);
+            
+            Console.WriteLine($"Cost of a family package for {familyDays} days (with {numberOfChildren} children): ${familyCost}");
+            break;
+            
+            default:
+            
+            Console.WriteLine("Invalid choice.");
+            break;
+        }
+    }
+}
+
+

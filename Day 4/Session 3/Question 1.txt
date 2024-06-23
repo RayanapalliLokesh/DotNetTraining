@@ -1,0 +1,74 @@
+using System;
+
+public interface IStudent{
+    int CalcTotal();
+    double CalcAvg();
+    string CalcGrade();
+}
+
+class Student:IStudent{
+    int rno, sub1, sub2, sub3;
+    string name;
+    
+    double avg;
+    
+    public Student(int rno, string name, int sub1, int sub2, int sub3){
+        this.rno = rno;
+        this.name = name;
+        this.sub1 = sub1;
+        this.sub2 = sub2;
+        this.sub3 = sub3;
+    }
+    
+    public int CalcTotal(){
+        return this.sub1 + this.sub2 + this.sub3;
+    }
+    
+    public double CalcAvg(){
+        return this.avg = (double)(this.sub1 + this.sub2 + this.sub3)/3;
+    }
+    
+    public string CalcGrade(){
+        if(this.avg >= 80){
+            return "A";
+        }
+        
+        else if(this.avg >= 60){
+            return "B";
+        }
+        
+        else if(this.avg >= 40){
+            return "C";
+        }
+        
+        else{
+            return "F";
+        }
+    }
+    
+    public void PrintMarksheet(){
+        Console.WriteLine($"Roll No: {this.rno}");
+        Console.WriteLine($"Name: {this.name}");
+        Console.WriteLine($"Subject 1: {this.sub1}");
+        Console.WriteLine($"Subject 2: {this.sub2}");
+        Console.WriteLine($"Subject 3: {this.sub3}");
+        Console.WriteLine($"Total Marks: {this.CalcTotal()}");
+        Console.WriteLine($"Average Marks: {this.CalcAvg()}");
+        Console.WriteLine($"Grade: {this.CalcGrade()}");
+    }
+    
+}
+
+class Program{
+    public static void Main(string[] args){
+        var rno = int.Parse(Console.ReadLine());
+        var name = Console.ReadLine();
+        var sub1 = int.Parse(Console.ReadLine());
+        var sub2 = int.Parse(Console.ReadLine());
+        var sub3 = int.Parse(Console.ReadLine());
+        
+        Student s = new Student(rno, name, sub1, sub2, sub3);
+        
+        s.PrintMarksheet();
+    }
+}
