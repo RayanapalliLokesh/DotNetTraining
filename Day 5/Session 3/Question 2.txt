@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+
+public class LibraryBookInventory{
+    Queue<string> Library = new Queue<string>();
+    
+    public void AddBook(string title){
+        Library.Enqueue(title);
+        Console.WriteLine("Book added: "+title);
+    }
+    public void CheckOutBook(){
+        if(Library.Count>0){
+            var checkOut = Library.Dequeue();
+            Console.WriteLine("Checked out book: "+checkOut);
+        }
+        else{
+            Console.WriteLine("No books in the inventory.");
+        }
+    }
+    
+    public void DisplayInventory(){
+        if(Library.Count > 0){
+            Console.WriteLine("Current book inventory:");
+            foreach(string books in Library){
+                Console.WriteLine(books);
+            }
+        }
+        
+        else{
+            Console.WriteLine("Current book inventory:");
+        }
+    }
+}
+
+public class A{
+    public static void Main(string[] args){
+        LibraryBookInventory lib = new LibraryBookInventory();
+        Console.WriteLine("Welcome to the Library Book Management System!");
+        
+        while(true){
+            var choice = Console.ReadLine();
+                switch(choice){
+                    case "1":
+                            string title = Console.ReadLine();
+                            lib.AddBook(title);
+                            break;
+                    case "2":
+                        lib.CheckOutBook();
+                        break;
+                    case "3":
+                        lib.DisplayInventory();
+                        break;
+                    case "4":
+                        Console.WriteLine("Thank you for using the Library Book Management System!");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+        }
+    }
+}

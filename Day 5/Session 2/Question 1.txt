@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+
+class Users{
+    static void Main(){
+        Dictionary<string, string> userDetails = new Dictionary<string,string>();
+        
+        while(true){
+            string userName = Console.ReadLine();
+            if(userName.ToUpper() == "Q"){
+                break;
+            }
+            if(userDetails.ContainsKey(userName)){
+                Console.WriteLine("User name already exists. Please enter a different user name.");
+                continue;
+            }
+            string userEmail = Console.ReadLine();
+            userDetails.Add(userName,userEmail);
+        }
+        
+        Console.WriteLine("User details:");
+        foreach(KeyValuePair<string,string> detailsofUser in userDetails){
+            Console.WriteLine($"Name: {detailsofUser.Key}, Email:{detailsofUser.Value}");
+        }
+    }
+}

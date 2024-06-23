@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+public class Book{
+    public string Title{get; set;}
+    public string Author {get; set;}
+    public int YearPublished {get; set;}
+}
+
+class Library{
+    public List<Book> Books {get; set;}
+    public Library(){
+        Books = new List<Book>();
+    }
+    
+    public void AddBook(Book book){
+        Books.Add(book);
+    }
+    
+    public void DisplayBooks(){
+        foreach(Book book in Books){
+            Console.WriteLine($"Title: {book.Title}, Author: {book.Author}, Year Published: {book.YearPublished}");
+        }
+    }
+}
+
+class LibraryTest{
+    public static void Main(){
+        Library library = new Library();
+        int n =int.Parse(Console.ReadLine());
+        for (int i=0; i<n; i++){
+            string t=Console.ReadLine();
+            string a=Console.ReadLine();
+            int y = int.Parse(Console.ReadLine());
+            
+        Book book = new Book{
+            Title = t,
+            Author = a,
+            YearPublished = y
+        };
+        library.AddBook(book);
+        }
+        Console.WriteLine("List of Books in the Library:");
+        library.DisplayBooks();
+    }
+}

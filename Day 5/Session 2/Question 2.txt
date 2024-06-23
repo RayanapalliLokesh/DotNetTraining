@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+
+class PhoneBank{
+    static void Main(){
+        Dictionary<string,string> phoneBook = new Dictionary<string,string>();
+        while(true){
+            string choice = Console.ReadLine();
+            switch(choice){
+                case "1":
+                    string cName = Console.ReadLine();
+                    string cNum = Console.ReadLine();
+                    phoneBook[cName] = cNum;
+                    Console.WriteLine("Contact added successfully!");
+                    break;
+                case "2":
+                    
+                    string search = Console.ReadLine();
+                    if(phoneBook.ContainsKey(search)){
+                        Console.WriteLine("Contact found:");
+                        Console.WriteLine($"Name: {search}, Phone Number: {phoneBook[search]}");
+                    }
+                    else{
+                        Console.WriteLine("Contact not found.");
+                    }
+                    
+                    break;
+                case "3":
+                    Console.WriteLine("Exiting the program...");
+                    return;
+            }
+        }
+    }
+}

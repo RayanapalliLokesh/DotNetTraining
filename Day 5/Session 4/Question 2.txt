@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+
+class Student{
+    static void Main(){
+        List<string> studentNames = new List<string>();
+        for(int i=0;i<5;i++){
+            string names = Console.ReadLine();
+            studentNames.Add(names);
+        }
+        studentNames.Reverse();
+        
+        foreach(string s in studentNames){
+            Console.WriteLine(s);
+        }
+    }
+}

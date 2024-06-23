@@ -1,0 +1,64 @@
+using System;
+using System.Collections.Generic;
+
+class RestaurantOrderQueue{
+    private Queue<string> orderQueue;
+    
+    public RestaurantOrderQueue(){
+        orderQueue = new Queue<string>();
+    }
+    
+    public void AddOrder(string order){
+        orderQueue.Enqueue(order);
+        Console.WriteLine("order added: "+ order);
+    }
+    
+    public void ServeOrder(){
+        if(orderQueue.Count>0){
+            string servedOrder = orderQueue.Dequeue();
+            Console.WriteLine("Served order: "+ servedOrder);
+        }
+        
+        else{
+            Console.WriteLine("No orders in the queue.");
+        }
+    }
+    
+    public void DisplayOrderQueue(){
+        Console.WriteLine("Current order queue:");
+        foreach(string order in orderQueue){
+            Console.WriteLine(order);
+        }
+    }
+}
+
+class Restaurant{
+    static void Main(){
+        RestaurantOrderQueue orderedQueue = new RestaurantOrderQueue();
+        Console.WriteLine("Welcome to the Restaurant Order Management System!");
+        
+        while(true){
+            int choice = Convert.ToInt32(Console.ReadLine());
+            
+            
+            switch (choice){
+                case 1:
+                    string order = Console.ReadLine();
+                    orderedQueue.AddOrder(order);
+                    break;
+                case 2:
+                    orderedQueue.ServeOrder();
+                    break;
+                case 3:
+                    orderedQueue.DisplayOrderQueue();
+                    break;
+                case 4:
+                    Console.WriteLine("Thank you for using the Restaurant Order Management System!");
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+class Shosinschool{
+    static void Main(){
+        Dictionary<string,List<string>> studentsSub = new Dictionary<string,List<string>>();
+        string name = Console.ReadLine();
+        
+        while(name.ToLower() != "quit"){
+            string acName = name;
+            string subjectsIn = Console.ReadLine();
+            string[] subjects = subjectsIn.Split(',');
+            
+            List<string> subjectList = new List<string>(subjects);
+            studentsSub.Add(acName, subjectList);
+            
+            name = Console.ReadLine();
+        }
+        
+        string search = Console.ReadLine();
+        if(studentsSub.ContainsKey(search)){
+            List<string> subjects = studentsSub[search];
+            foreach(string sub in subjects){
+                Console.WriteLine(sub);
+            }
+        }
+        else {
+            Console.WriteLine("Student not found.");
+        }
+    }
+}

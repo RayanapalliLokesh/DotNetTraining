@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+class TaskList{
+    static void Main(){
+        Dictionary<string, string> tasks= new Dictionary<string, string>();
+        
+        while(true){
+            string taskName=Console.ReadLine();
+            
+            if(taskName.ToUpper()=="Q"){
+                break;
+            }
+            if(tasks.ContainsKey(taskName)){
+                Console.WriteLine("Task name already exists. PLease enter a different task name.");
+                continue;
+            }
+            string dueDate = Console.ReadLine();
+            tasks.Add(taskName, dueDate);
+        }
+        Console.WriteLine("Task details:");
+        
+        foreach(KeyValuePair<string, string> task in tasks){
+            Console.WriteLine($"Task: {task.Key}, Due Date: {task.Value}");
+        }
+    }
+}

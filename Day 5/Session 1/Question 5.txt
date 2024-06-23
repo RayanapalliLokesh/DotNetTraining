@@ -1,0 +1,23 @@
+using System;
+using System.Collections;
+
+public class Program{
+    
+    public static void Main(string[] args){
+        ArrayList people = new ArrayList();
+        
+        var num_people = Convert.ToInt32(Console.ReadLine());
+        var index = Convert.ToInt32(Console.ReadLine());
+        
+        for(int i=0; i<num_people; i++){
+            var name = Console.ReadLine();
+            people.Add(name);
+        }
+        if(index>=0 && index <= people.Count){
+            people.Insert(index, "new_name");
+        }
+        foreach(string a in people){
+            Console.WriteLine(a);
+        }
+    }
+}
